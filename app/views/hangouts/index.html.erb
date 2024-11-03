@@ -1,0 +1,26 @@
+<div>
+  <div id="message-display">
+    <% @messages.each do |message| %>
+      <article class="message">
+        <div class="message-header">
+          <%= message.user.email %>
+        </div>
+        <div class="message-body">
+          <%= message.body %>
+        </div>
+      </article>
+    <% end %>
+  </div>
+  <div id="message-form">
+    <%= form_with(model: @message, local: true, id: "message-form") do |form| %>
+      <div class="field has-addons">
+        <div class="control">
+          <%= form.text_field :message, class: "input", id: "message-input" %>
+        </div>
+        <div class="control">
+          <%= form.submit "Send Message", class: "button is-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
