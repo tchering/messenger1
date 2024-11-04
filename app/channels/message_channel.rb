@@ -8,18 +8,8 @@ class MessageChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
   end
 
-  # receive the data sent from message_channel.js and broadcast it to all subscribers including the sender
-  def receive(data)
-    # This is where broadcasting should happen
-    data["user"] = current_user
-    # message = current_user.messages.create!(body: data["message"]["body"])
-    ActionCable.server.broadcast("message", data)
-  end
-
+  # but we dont need this becuase the message is being broadcasted from the messages_controller not from javascript in notification_channel.js. We have already commented that code .
   # def receive(data)
-  #   # This is where broadcasting should happen
-  #   data["user"] = current_user
-  #   message = current_user.messages.create!(body: data["message"]["body"])
   #   ActionCable.server.broadcast("message", data)
   # end
 end

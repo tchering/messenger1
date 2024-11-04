@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   root "hangouts#index"
+  resources :hangouts, only: [:index]
+  get "chat", to: "hangouts#chat"
   resources :messages, only: [:create]
-  post "create_message", to: "messages#create"
 end

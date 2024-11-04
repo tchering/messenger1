@@ -15,6 +15,7 @@ consumer.subscriptions.create("MessageChannel", {
     // Called when there's incoming data on the websocket for this channel
     const messageDisplay = document.querySelector("#message-display");
     messageDisplay.insertAdjacentHTML("beforeend", this.template(data));
+    document.querySelector("#message-input").value = "";
   },
 
   template(data) {
