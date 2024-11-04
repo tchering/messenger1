@@ -12,10 +12,10 @@
     <% end %>
   </div>
   <div id="message-form">
-    <%= form_with(model: @message, local: true, id: "message-form") do |form| %>
+    <%= form_with(model: @message, local: false, id: "message-form") do |form| %>
       <div class="field has-addons">
         <div class="control">
-          <%= form.text_field :message, class: "input", id: "message-input" %>
+          <%= form.text_field :body, class: "input", id: "message-input" %>
         </div>
         <div class="control">
           <%= form.submit "Send Message", class: "button is-primary" %>
